@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {Link} from "react-router-dom";
-// import {connect} from "react-redux";
+import {Link, Redirect} from "react-router-dom";
+import {connect} from "react-redux";
+import {auth} from "../actions";
 
 class Login extends Component {
 
@@ -11,10 +12,12 @@ class Login extends Component {
     
     onSubmit = e => {
         e.preventDefault();
-        console.error("Not implemented!!1");
+        
     }
     
     render() {
+        
+
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
@@ -47,16 +50,9 @@ class Login extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {};
-// }
-  
-// const mapDispatchToProps = dispatch => {
-//     return {};
-// }
-  
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
-
 export default Login;
+
+
+
 
 

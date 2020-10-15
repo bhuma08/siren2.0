@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import goalsApp from "./Reducers";
+import Reducer from "./Reducers/Reducer.js";
 
-const store = createStore(goalsApp, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(Reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;
