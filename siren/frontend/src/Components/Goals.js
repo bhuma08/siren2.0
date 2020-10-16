@@ -37,8 +37,6 @@ class Goals extends Component {
 
     showGoals =()=>{
 
-        console.log(this.state.id)
-
         const token = this.props.token
 
         const config = {
@@ -53,11 +51,14 @@ class Goals extends Component {
                 this.setState({ goals : response.data })
                 console.log(this.state.goals)
             })
+            .then(()=>{
+                if(this.state.goals.length ==0){
+                    alert("No goals has been set") 
+                }
+            })
             .catch((error)=>{
                 console.log(error);
             });
-
-
 
     };   
 
@@ -66,16 +67,11 @@ class Goals extends Component {
 
     render() {
 
-
-
         return (
             <div>
                 <button onClick={this.showGoals}>View your Goals</button>
-                {console.log(this.state.goals)}
-                <DisplayGoals goals={this.state.goals}/>
-
-
-                
+                <hr></hr>
+                <DisplayGoals goals={this.state.goals}/>                
             </div>
         )
     }

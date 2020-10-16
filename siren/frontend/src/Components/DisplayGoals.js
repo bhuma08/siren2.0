@@ -4,6 +4,7 @@ class DisplayGoals extends Component {
     render() {
         return (
             <div>
+                
                 {this.props.goals.map((item, idx) =>
                     <div key={idx}>
                         <p>Your Goal: {item.goal}</p>
@@ -15,8 +16,9 @@ class DisplayGoals extends Component {
                             <li>{item.actionFour}</li>
                         </ul>
                         <p>Start date: {item.start_time}</p>
-                        <p>Deadline: {item.end_time}</p>  <br></br>      
+                        <p>Deadline: {item.end_time}</p>  <hr></hr>      
                     </div>) }
+                
                 
             </div>
         )
