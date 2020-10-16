@@ -64,10 +64,10 @@ export const login = (username, password) => dispatch => {
             });
         })
         .catch((err) => {
-            // dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({
                 type: LOGIN_FAIL,
             });
+            alert("Invalid username or password")
         });
 };
 
@@ -82,12 +82,13 @@ export const logout = () => (dispatch, getState) => {
             });
         })
         .catch((err) => {
-        // dispatch(returnErrors(err.response.data, err.response.status));
         dispatch({
             type: AUTH_ERROR,
         });
     });
 }
+
+
 
 // Setup config with token - helper function
 export const tokenConfig = (getState) => {
@@ -105,6 +106,8 @@ export const tokenConfig = (getState) => {
     }
     return config;
 };
+
+
   
 // REGISTER USER
 export const register = ({ username, password }) => (dispatch) => {
@@ -127,7 +130,6 @@ export const register = ({ username, password }) => (dispatch) => {
             });
         })
         .catch((err) => {
-            dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({
                 type: REGISTER_FAIL,
             });

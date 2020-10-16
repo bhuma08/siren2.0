@@ -12,7 +12,6 @@ class Goals extends Component {
 
     componentDidMount(){
         const token = this.props.token
-        console.log(token)
 
         const config = {
             headers :{
@@ -20,7 +19,7 @@ class Goals extends Component {
                 'Authorization' : `Token ${token}`
             }
         }
-
+        
         axios.get('http://127.0.0.1:8000/api/user/', config)
             .then((response)=> {
                 console.log(response.data.id)
@@ -56,7 +55,6 @@ class Goals extends Component {
             .catch((error)=>{
                 console.log(error);
             });
-
     };   
 
     render() {

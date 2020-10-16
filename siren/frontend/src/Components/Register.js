@@ -22,7 +22,6 @@ class Register extends Component {
         const { username, email, password, password2 } = this.state;
         if (password !== password2) {
             alert("Passwords do not match")
-            // this.props.createMessage({ passwordNotMatch: 'Passwords do not match' });
         } else {
         const newUser = {
             username,
@@ -37,8 +36,6 @@ class Register extends Component {
     }
     
     render() {
-        
-
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
@@ -66,9 +63,9 @@ class Register extends Component {
                             <button type="submit">Register</button>
                         </p>
 
-                        <p>
+                        {/* <p>
                             Already have an account? <Link to="/">Login</Link>
-                        </p>
+                        </p> */}
                     </fieldset>
                 </form>
                 

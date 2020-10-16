@@ -49,9 +49,9 @@ class Login extends Component {
                             <button type="submit">Login</button>
                         </p>
 
-                        <p>
+                        {/* <p>
                             Don't have an account? <Link to="/register">Register</Link>
-                        </p>
+                        </p> */}
                     </fieldset>
                 </form>
                 

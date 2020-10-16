@@ -17,10 +17,7 @@ class Logout extends Component {
 
         return (
             <div>
-
-                {isAuthenticated ? <button onClick={this.props.logout} >Logout</button> : <h1></h1>}
-                
-                
+                {isAuthenticated ? <button onClick={this.props.logout} >Logout</button> : <h1></h1>}    
             </div>
         )
     }
