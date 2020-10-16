@@ -14,6 +14,7 @@ class Login extends Component {
     static propTypes ={
         login: PropTypes.func.isRequired,
         isAuthenticated: PropTypes.bool
+ 
     }
     
     onSubmit = e => {
@@ -24,6 +25,7 @@ class Login extends Component {
     render() {
         if(this.props.isAuthenticated){
             return <Redirect to='/home' />
+            
         }
 
         return (
@@ -60,7 +62,8 @@ class Login extends Component {
 
 const mSTP = state =>({
 
-    isAuthenticated: state.AuthReducer.isAuthenticated
+    isAuthenticated: state.AuthReducer.isAuthenticated,
+    token: state.AuthReducer.token
 
 })
 export default connect(mSTP, {login})(Login);
