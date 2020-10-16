@@ -107,7 +107,7 @@ export const tokenConfig = (getState) => {
 };
   
 // REGISTER USER
-export const register = ({ username, password, email }) => (dispatch) => {
+export const register = ({ username, password }) => (dispatch) => {
     // Headers
     const config = {
         headers: {
