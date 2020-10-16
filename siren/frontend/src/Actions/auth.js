@@ -6,8 +6,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
-    // REGISTER_SUCCESS,
-    // REGISTER_FAIL,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
 } from './Types';
 
 // CHECK TOKEN & LOAD USER
