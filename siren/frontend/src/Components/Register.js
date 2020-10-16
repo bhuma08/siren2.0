@@ -22,29 +22,23 @@ class Register extends Component {
     onSubmit = e => {
         e.preventDefault();
         const { username, email, password, password2 } = this.state;
+
         if (password !== password2) {
             alert("Passwords do not match")
         } else if (username == '' || email == '' || password==''){
             alert("Please provide all the details")
-        }
+        } else {
+            const newUser = {
+                username,
+                password,
+                email,
+            };
+            this.props.register(newUser);
+
+            e.target.reset();
         
-        else {
-        const newUser = {
-            username,
-            password,
-            email,
-        };
-        this.props.register(newUser);
-        <Redirect to='/'/>
-        alert("You have successfully registered! please log in")
+            alert("You have successfully registered! please log in")
         }
-
-        this.setState({
-            username: ""
-        })
-
-
-
     }
     
     render() {
@@ -80,10 +74,6 @@ class Register extends Component {
                         <p>
                             <button type="submit">Register</button>
                         </p>
-
-                        {/* <p>
-                            Already have an account? <Link to="/">Login</Link>
-                        </p> */}
                     </fieldset>
                 </form>
                 

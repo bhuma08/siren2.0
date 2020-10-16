@@ -24,8 +24,7 @@ class Login extends Component {
     
     render() {
         if(this.props.isAuthenticated){
-            return <Redirect to='/home' />
-            
+            return <Redirect to='/home' />      
         }
 
         return (
@@ -48,13 +47,8 @@ class Login extends Component {
                         <p>
                             <button type="submit">Login</button>
                         </p>
-
-                        {/* <p>
-                            Don't have an account? <Link to="/register">Register</Link>
-                        </p> */}
                     </fieldset>
-                </form>
-                
+                </form>      
             </div>
         )
     }
