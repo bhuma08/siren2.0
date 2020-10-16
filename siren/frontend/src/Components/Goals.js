@@ -30,9 +30,6 @@ class Goals extends Component {
             .catch((error)=>{
                 console.log(error);
             });
-
-
-
     }
 
     showGoals =()=>{
@@ -61,9 +58,6 @@ class Goals extends Component {
             });
 
     };   
-
-
-
 
     render() {
 
