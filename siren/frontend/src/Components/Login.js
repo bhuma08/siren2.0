@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
+import PropTypes from 'prop-types';
+import { login } from '../Actions/Auth'
 
 class Login extends Component {
 
@@ -8,14 +10,21 @@ class Login extends Component {
         username: "",
         password: "",
     }
+
+    static propTypes ={
+        login: PropTypes.func.isRequired,
+        isAuthenticated: PropTypes.bool
+    }
     
     onSubmit = e => {
         e.preventDefault();
-        
+        this.props.login(this.state.username, this.state.password)
     }
     
     render() {
-        
+        if(this.props.isAuthenticated){
+            return <Redirect to='/home' />
+        }
 
         return (
             <div>
@@ -49,7 +58,12 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mSTP = state =>({
+
+    isAuthenticated: state.AuthReducer.isAuthenticated
+
+})
+export default connect(mSTP, {login})(Login);
 
 
 

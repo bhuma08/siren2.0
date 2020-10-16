@@ -1,43 +1,135 @@
-export const loadData = (data) => ({
-  
-    type: "LOAD_DATA",
-    payload: data,
-  
-});
+import axios from 'axios';
+import {
+    USER_LOADED,
+    USER_LOADING,
+    AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT_SUCCESS,
+    // REGISTER_SUCCESS,
+    // REGISTER_FAIL,
+} from './Types';
 
-export const loadUser = () => {
-    return (dispatch, getState) => {
-        dispatch({type: "USER_LOADING"});
+// CHECK TOKEN & LOAD USER
+export const loadUser = () => (dispatch, getState) => {
+    // User Loading
+    dispatch({ type: USER_LOADING });
+
+    const token = getState().AuthReducer.token;
+
+    const config = {
+        headers :{
+            'Content-Type': 'application/json'
+        }
+    }
+
+    if(token){
+        config.headers['Authorization']=`Token ${token}`
+    }
   
-    const token = getState().auth.token;
+    axios
+        .get('http://127.0.0.1:8000/api/user/', config)
+        .then((res) => {
+            dispatch({
+                type: USER_LOADED,
+                payload: res.data,
+            });
+        })
+        .catch((err) => {
+            // dispatch(returnErrors(err.response.data, err.response.status));
+            dispatch({
+                type: AUTH_ERROR,
+            });
+        });
+};
+
+//Login
+export const login = (username, password) => dispatch => {
+
+    const config = {
+        headers :{
+            'Content-Type': 'application/json'
+        }
+    }
+
+    //Request body
+    const body= JSON.stringify({ username, password })
   
-    let headers = {
-        "Content-Type": "application/json",
+    axios
+        .post('http://127.0.0.1:8000/api/login/', body, config)
+        .then((res) => {
+            dispatch({
+                type: LOGIN_SUCCESS,
+                payload: res.data,
+            });
+        })
+        .catch((err) => {
+            // dispatch(returnErrors(err.response.data, err.response.status));
+            dispatch({
+                type: LOGIN_FAIL,
+            });
+        });
+};
+
+//Logout user
+export const logout = () => (dispatch, getState) => {
+    axios
+        .post('http://127.0.0.1:8000/api/logout/', null, tokenConfig(getState))
+        .then((res) => {
+            dispatch({ type: 'CLEAR_LEADS' });
+            dispatch({
+                type: LOGOUT_SUCCESS,
+            });
+        })
+        .catch((err) => {
+        // dispatch(returnErrors(err.response.data, err.response.status));
+        dispatch({
+            type: AUTH_ERROR,
+        });
+    });
+}
+
+// Setup config with token - helper function
+export const tokenConfig = (getState) => {
+    // Get token from state
+    const token = getState().AuthReducer.token;  
+    // Headers
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
+    // If token, add to headers config
+    if (token) {
+      config.headers['Authorization'] = `Token ${token}`;
+    }
+    return config;
+};
+  
+// REGISTER USER
+export const register = ({ username, password, email }) => (dispatch) => {
+    // Headers
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
     };
   
-    if (token) {
-        headers["Authorization"] = `Token ${token}`;
-    }
-    return fetch("/api/auth/user/", {headers, })
-        .then(res => {
-            if (res.status < 500) {
-                return res.json().then(data => {
-                    return {status: res.status, data};
-                })
-            } else {
-                console.log("Server Error!");
-            throw res;
-            }
-        })
-        .then(res => {
-            if (res.status === 200) {
-                dispatch({type: 'USER_LOADED', user: res.data });
-                return res.data;
-            } else if (res.status >= 400 && res.status < 500) {
-                dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
-                throw res.data;
-            }
-        })
-    }
-}
+    // Request Body
+    const body = JSON.stringify({ username, password });
   
+    axios
+        .post('http://127.0.0.1:8000/api/register/', body, config)
+        .then((res) => {
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: res.data,
+            });
+        })
+        .catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
+            dispatch({
+                type: REGISTER_FAIL,
+            });
+        });
+};

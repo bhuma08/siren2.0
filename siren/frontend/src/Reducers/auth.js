@@ -1,34 +1,42 @@
+import {
+    USER_LOADED,
+    USER_LOADING,
+    AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT_SUCCESS,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL
+} from '../Actions/Types';
+  
 const initialState = {
-    token: localStorage.getItem("token"),
+    token: localStorage.getItem('token'),
     isAuthenticated: null,
-    isLoading: true,
+    isLoading: false,
     user: null,
-    errors: {},
 };
-  
-  
-export default function auth(state=initialState, action) {
-  
+
+function AuthReducer (state = initialState, action) {
     switch (action.type) {
-  
-        case 'USER_LOADING':
-            return {...state, isLoading: true};
-  
-        case 'USER_LOADED':
-            return {...state, isAuthenticated: true, isLoading: false, user: action.user};
-  
-        case 'LOGIN_SUCCESSFUL':
-            localStorage.setItem("token", action.data.token);
-            return {...state, ...action.data, isAuthenticated: true, isLoading: false, errors: null};
-  
-        case 'AUTHENTICATION_ERROR':
-        case 'LOGIN_FAILED':
-        case 'LOGOUT_SUCCESSFUL':
-            localStorage.removeItem("token");
-            return {...state, errors: action.data, token: null, user: null,
-            isAuthenticated: false, isLoading: false};
-  
+        case USER_LOADING:
+            return {...state,isLoading: true};
+        case USER_LOADED:
+            return {...state, isAuthenticated: true, isLoading: false, user: action.payload,};
+        case LOGIN_SUCCESS:
+        case REGISTER_SUCCESS:
+        localStorage.setItem('token', action.payload.token);
+        return {...state, ...action.payload, isAuthenticated: true,isLoading: false,};
+        case AUTH_ERROR:
+        case LOGIN_FAIL:
+        case LOGOUT_SUCCESS:
+        case REGISTER_FAIL:
+            localStorage.removeItem('token');
+            return {...state, token: null, user: null, isAuthenticated: false, isLoading: false,};
         default:
             return state;
     }
 }
+
+export default AuthReducer;
+
+  

@@ -1,9 +1,9 @@
-import auth from "./auth";
-import Reducer from'./Reducer';
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
+import AuthReducer from './Auth';
+import GoalsReducer from './Goals';
 
-const goalsApp = combineReducers({
-  Reducer, auth,
-})
+const AllReducers = combineReducers({
+  AuthReducer, GoalsReducer,
+});
 
-export default goalsApp;
+export default AllReducers;
