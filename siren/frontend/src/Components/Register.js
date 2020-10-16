@@ -8,6 +8,7 @@ class Register extends Component {
 
     state = {
         username: "",
+        email:'',
         password: "",
         password2: '',
     }
@@ -16,13 +17,18 @@ class Register extends Component {
         register: PropTypes.func.isRequired,
         isAuthenticated: PropTypes.bool,
     }
+
     
     onSubmit = e => {
         e.preventDefault();
         const { username, email, password, password2 } = this.state;
         if (password !== password2) {
             alert("Passwords do not match")
-        } else {
+        } else if (username == '' || email == '' || password==''){
+            alert("Please provide all the details")
+        }
+        
+        else {
         const newUser = {
             username,
             password,
@@ -32,6 +38,12 @@ class Register extends Component {
         <Redirect to='/'/>
         alert("You have successfully registered! please log in")
         }
+
+        this.setState({
+            username: ""
+        })
+
+
 
     }
     
@@ -46,6 +58,12 @@ class Register extends Component {
                             <input
                             type="text" id="username"
                             onChange={e => this.setState({username: e.target.value})} />
+                        </p>
+                        <p>
+                            <label htmlFor="email">Email </label>
+                            <input
+                            type="text" id="email"
+                            onChange={e => this.setState({email: e.target.value})} />
                         </p>
                         <p>
                             <label htmlFor="password">Password </label>
