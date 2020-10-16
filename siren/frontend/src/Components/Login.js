@@ -14,7 +14,6 @@ class Login extends Component {
     static propTypes ={
         login: PropTypes.func.isRequired,
         isAuthenticated: PropTypes.bool
- 
     }
     
     onSubmit = e => {
