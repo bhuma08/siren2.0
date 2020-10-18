@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Calendar from 'react-calendar';
 
 class NewGoalsForm extends Component {
 
@@ -9,8 +10,8 @@ class NewGoalsForm extends Component {
         actionTwo :"",
         actionThree:"",
         actionFour:"",
-        start_date:"",
-        end_date:'',
+        start_date: new Date(),
+        end_date: new Date(),
         username:''
     }
 
@@ -88,15 +89,25 @@ class NewGoalsForm extends Component {
                         <input type='text' name='four' placeholder='Four' onChange={e => this.setState({actionFour: e.target.value})}value={this.state.actionFour}></input><br></br>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <label>Start date and time: </label>
                         <input type='text' name='start' placeholder='YYYY-MM-DD HH-MM' onChange={e => this.setState({start_date: e.target.value})} value={this.state.start_date}></input><br></br>
+                    </div> */}
+
+                    <div>
+                        <label>Start date and time: </label>
+                        <Calendar onChange={start_date => this.setState({ start_date })} value={this.state.date}/>
                     </div>
+
+                    {/* <div>
+                        <label>End date and time: </label>
+                        <input type='text' name='end' placeholder='YYYY-MM-DD HH-MM' onChange={e => this.setState({end_date: e.target.value})} value={this.state.end_date}></input><br></br>
+                    </div>  */}
 
                     <div>
                         <label>End date and time: </label>
-                        <input type='text' name='end' placeholder='YYYY-MM-DD HH-MM' onChange={e => this.setState({end_date: e.target.value})} value={this.state.end_date}></input><br></br>
-                    </div> 
+                        <Calendar onChange={end_date => this.setState({ end_date })} value={this.state.date}/>
+                    </div>
 
                     <div>
                         <input type='submit' value='create' onClick={this.update}></input>
