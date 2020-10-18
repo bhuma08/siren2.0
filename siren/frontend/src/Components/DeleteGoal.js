@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class DeleteGoal extends Component {
-
-    fetchData=()=>{
-        console.log('new data shown')
-    }
 
     handleClick = e =>{
         e.preventDefault();
@@ -21,7 +18,8 @@ class DeleteGoal extends Component {
         }
 
         fetch(`http://127.0.0.1:8000/api/${this.props.id}/`, options)
-        .then(this.fetchData())
+        .then(alert('Your Goals has been deleted'))
+        .then(window.location.reload(false))    
     }
 
     render() {
@@ -36,6 +34,7 @@ class DeleteGoal extends Component {
 
 const mSTP = state =>({
     token: state.AuthReducer.token,
+    username: state.AuthReducer.user.id
 })
 
 export default connect(mSTP)(DeleteGoal);

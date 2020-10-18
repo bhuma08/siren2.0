@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import axios from 'axios';
 import DisplayGoals from './DisplayGoals';
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 
 class Goals extends Component {
 
     state= {
         id : '',
-        goals : []
+        goals : [],
+        openModal : false
     }
 
     componentDidMount(){
@@ -30,6 +33,8 @@ class Goals extends Component {
     }
 
     showGoals =()=>{
+
+        this.setState({openModal : true})
 
         const token = this.props.token
 
@@ -55,13 +60,19 @@ class Goals extends Component {
             });
     };   
 
+    onCloseModal = ()=>{
+        this.setState({openModal : false})
+    }
+
     render() {
 
         return (
             <div>
                 <button onClick={this.showGoals}>View your Goals</button>
                 <hr></hr>
-                <DisplayGoals goals={this.state.goals}/>                
+                <Modal open={this.state.openModal} onClose={this.onCloseModal} center>
+                    <DisplayGoals goals={this.state.goals}/>     
+                </Modal>           
             </div>
         )
     }
