@@ -28,7 +28,7 @@ class NewGoalsForm extends Component {
         this.props.addActionFour(this.state.actionFour);
         this.props.addStartDate(this.state.start_date);
         this.props.addEndDate(this.state.end_date);
-        this.props.addUsername(this.state.id)
+        this.props.addUsername(this.state.username)
 
         //post to api
         const token = this.props.token 
