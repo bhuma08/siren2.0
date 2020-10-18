@@ -9,8 +9,8 @@ class Goals(models.Model):
     actionTwo = models.CharField(max_length=100, unique=True)
     actionThree = models.CharField(max_length=100, unique=True)
     actionFour = models.CharField(max_length=100, unique=True)
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    start_time = models.DateField()
+    end_time = models.DateField()
     created_date = models.DateTimeField(auto_now_add=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
