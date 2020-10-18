@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import DeleteGoal from './DeleteGoal';
 
 class DisplayGoals extends Component {
+    
     render() {
         return (
             <div>
@@ -15,7 +17,9 @@ class DisplayGoals extends Component {
                             <li>{item.actionFour}</li>
                         </ul>
                         <p>Start date: {item.start_time}</p>
-                        <p>Deadline: {item.end_time}</p>  <hr></hr>      
+                        <p>Deadline: {item.end_time}</p>
+                        <DeleteGoal id={item.id}/>
+                        <hr></hr>      
                     </div>) }   
             </div>
         )
