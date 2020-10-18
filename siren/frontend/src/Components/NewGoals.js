@@ -23,7 +23,7 @@ class NewGoals extends Component {
         return (
             <div>
                 <button onClick={this.handleClick}>Create you goals</button>
-                <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+                <Modal open={this.state.openModal} onClose={this.onCloseModal} center>
                     <NewGoalsForm/>
                 </Modal>
                 
