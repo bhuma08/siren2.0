@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 
 class NewGoalsForm extends Component {
@@ -14,7 +15,13 @@ class NewGoalsForm extends Component {
         username:''
     }
 
+    componentDidMount(){
+
+        this.setState({ username: this.props.username })
+    }
+
     update = e => {
+        
         e.preventDefault()
 
         this.props.addGoal(this.state.goal);
@@ -24,6 +31,49 @@ class NewGoalsForm extends Component {
         this.props.addActionFour(this.state.actionFour);
         this.props.addStartDate(this.state.start_date);
         this.props.addEndDate(this.state.end_date);
+        this.props.addUsername(this.state.id)
+
+        //post to api
+        const token = this.props.token 
+
+        const data = {
+            goal : this.state.goal,
+            actionOne : this.state.actionOne,
+            actionTwo : this.state.actionTwo,
+            actionThree: this.state.actionThree,
+            actionFour: this.state.actionFour,
+            start_time: this.state.start_date,
+            end_time: this.state.end_date,
+            username: this.state.username
+        }
+    
+        const body = JSON.stringify(data)
+
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization' : `Token ${token}`
+            }
+        }
+    
+        fetch(`http://127.0.0.1:8000/api/`, options)
+            .then(r => r.json())
+            .then(alert('You have succesfully created your goal.'))
+            .catch(console.warn) 
+            
+        //Reset the form
+        this.setState({
+            goal: "",
+            actionOne : "",
+            actionTwo :"",
+            actionThree:"",
+            actionFour:"",
+            start_date:"",
+            end_date:'',
+            username:''
+        })       
     }
 
     render() {
@@ -32,25 +82,25 @@ class NewGoalsForm extends Component {
                 <form>
                     <div>
                         <label>Goals: </label>
-                        <input type='text' placeholder='What is you goal?' onChange={e => this.setState({goal: e.target.value})} value={this.state.goal}></input><br></br>
+                        <input type='text' name='goal' placeholder='What is you goal?' onChange={e => this.setState({goal: e.target.value})} value={this.state.goal}></input><br></br>
                     </div>
 
                     <div>
                         <label>What actions are you going to take? </label><br></br>
-                        <input type='text' placeholder='One' onChange={e => this.setState({actionOne: e.target.value})} value={this.state.actionOne}></input><br></br>
-                        <input type='text' placeholder='Two' onChange={e => this.setState({actionTwo: e.target.value})} value={this.state.actionTwo}></input><br></br>
-                        <input type='text' placeholder='Three' onChange={e => this.setState({actionThree: e.target.value})} value={this.state.actionThree}></input><br></br>
-                        <input type='text' placeholder='Four' onChange={e => this.setState({actionFour: e.target.value})}value={this.state.actionFour}></input><br></br>
+                        <input type='text' name='one' placeholder='One' onChange={e => this.setState({actionOne: e.target.value})} value={this.state.actionOne}></input><br></br>
+                        <input type='text'name='two' placeholder='Two' onChange={e => this.setState({actionTwo: e.target.value})} value={this.state.actionTwo}></input><br></br>
+                        <input type='text' name='three' placeholder='Three' onChange={e => this.setState({actionThree: e.target.value})} value={this.state.actionThree}></input><br></br>
+                        <input type='text' name='four' placeholder='Four' onChange={e => this.setState({actionFour: e.target.value})}value={this.state.actionFour}></input><br></br>
                     </div>
 
                     <div>
                         <label>Start date and time: </label>
-                        <input type='text' placeholder='YYYY-MM-DD HH-MM' onChange={e => this.setState({start_date: e.target.value})} value={this.state.start_date}></input><br></br>
+                        <input type='text' name='start' placeholder='YYYY-MM-DD HH-MM' onChange={e => this.setState({start_date: e.target.value})} value={this.state.start_date}></input><br></br>
                     </div>
 
                     <div>
                         <label>End date and time: </label>
-                        <input type='text' placeholder='YYYY-MM-DD HH-MM' onChange={e => this.setState({end_date: e.target.value})} value={this.state.end_date}></input><br></br>
+                        <input type='text' name='end' placeholder='YYYY-MM-DD HH-MM' onChange={e => this.setState({end_date: e.target.value})} value={this.state.end_date}></input><br></br>
                     </div> 
 
                     <div>
@@ -62,6 +112,13 @@ class NewGoalsForm extends Component {
     }
 }
 
+const mSTP = state =>({
+
+    token: state.AuthReducer.token,
+    username: state.AuthReducer.user.id
+
+})
+
 const mapsDispatchToProps = dispatch =>({
     addGoal: goal => dispatch({ type: "ADD_GOAL", payload: goal}),
     addActionOne: actionOne => dispatch({ type: 'ADD_ACTIONONE', payload: actionOne}),
@@ -70,6 +127,7 @@ const mapsDispatchToProps = dispatch =>({
     addActionFour: actionFour => dispatch({ type: 'ADD_ACTIONFOUR', payload: actionFour}),
     addStartDate: start_date => dispatch({ type: 'ADD_START', payload: start_date}),
     addEndDate: end_date => dispatch({ type: 'ADD_END', payload: end_date}),
+    addUsername: id => dispatch({ type: 'ADD_USERNAME', payload:id })
 })
 
-export default connect(null, mapsDispatchToProps)(NewGoalsForm);
+export default connect(mSTP, mapsDispatchToProps)(NewGoalsForm);

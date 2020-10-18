@@ -22,9 +22,7 @@ class Goals extends Component {
         
         axios.get('http://127.0.0.1:8000/api/user/', config)
             .then((response)=> {
-                console.log(response.data.id)
                 this.setState({ id: response.data.id })
-                console.log(this.state.id)
             })
             .catch((error)=>{
                 console.log(error);
