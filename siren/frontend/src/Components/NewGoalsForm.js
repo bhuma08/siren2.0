@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
 class NewGoalsForm extends Component {
@@ -16,12 +15,10 @@ class NewGoalsForm extends Component {
     }
 
     componentDidMount(){
-
         this.setState({ username: this.props.username })
     }
 
     update = e => {
-        
         e.preventDefault()
 
         this.props.addGoal(this.state.goal);
@@ -46,8 +43,6 @@ class NewGoalsForm extends Component {
             end_time: this.state.end_date,
             username: this.state.username
         }
-    
-        const body = JSON.stringify(data)
 
         const options = {
             method: 'POST',
@@ -113,10 +108,8 @@ class NewGoalsForm extends Component {
 }
 
 const mSTP = state =>({
-
     token: state.AuthReducer.token,
     username: state.AuthReducer.user.id
-
 })
 
 const mapsDispatchToProps = dispatch =>({
