@@ -50,26 +50,26 @@ class Register extends Component {
                         <legend>Register</legend>
                         <div className="input-field col s6">
                        
-                            <label htmlFor="username">Username </label>
-                            <input type="text" id="username" className="validate"
+                            <label>Username </label>
+                            <input type="text" id="user" className="validate"
                             onChange={e => this.setState({username: e.target.value})} />
                         </div>
 
                         <div className="input-field col s6">
-                            <label htmlFor="email">Email </label>
+                            <label>Email </label>
                             <input type="text" id="email" className="validate"
                             onChange={e => this.setState({email: e.target.value})} />
                         </div>
 
                         <div className="input-field col s6">
-                            <label htmlFor="password">Password </label>
-                            <input type="password" id="password"
+                            <label>Password </label>
+                            <input type="password" id="pass" className="validate"
                             onChange={e => this.setState({password: e.target.value})} />
                         </div>
 
                         <div className="input-field col s6">
-                            <label htmlFor="password">Confirm Password </label>
-                            <input type="password" id="password2"
+                            <label>Confirm Password </label>
+                            <input type="password" id="pass2" className="validate"
                             onChange={e => this.setState({password2: e.target.value})} />
                         </div>
                             <button className ="waves-effect waves-light btn register-btn" type="submit">Register</button>
