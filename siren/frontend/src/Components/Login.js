@@ -3,7 +3,7 @@ import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
 import { login } from '../Actions/Auth'
-
+import '../styles/Login.css'
 class Login extends Component {
 
     state = {
@@ -28,24 +28,19 @@ class Login extends Component {
 
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} className='login-form'>
                     <fieldset>
                         <legend>Login</legend>
-                        <p>
+                        <div className="input-field col s6">
                             <label htmlFor="username">Username </label>
-                            <input
-                            type="text" id="username"
-                            onChange={e => this.setState({username: e.target.value})} />
-                        </p>
-                        <p>
+                            <input type="text" id='username' className="validate" onChange={e => this.setState({username: e.target.value})} />
+                        </div>
+                        <div className="input-field col s6">
                             <label htmlFor="password">Password </label>
-                            <input
-                            type="password" id="password"
-                            onChange={e => this.setState({password: e.target.value})} />
-                        </p>
-                        <p>
-                            <button type="submit">Login</button>
-                        </p>
+                            <input type="password" id="password" className="validate" onChange={e => this.setState({password: e.target.value})} />
+                        </div>
+                      
+                        <button className ="waves-effect waves-light btn login-btn" type="submit">Login</button>   
                     </fieldset>
                 </form>      
             </div>

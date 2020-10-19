@@ -8,7 +8,7 @@ class Home extends Component {
         return (
             <div>
                 <Logout/>
-                <h1>Welcome to your Goals...</h1>
+                <h1>Welcome to your Goals</h1>
                 <Goals/>
                 <NewGoals/>
                 

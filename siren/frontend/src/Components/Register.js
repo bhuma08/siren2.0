@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
-import { register } from '../Actions/Auth'
+import { register } from '../Actions/Auth';
+import '../styles/Register.css'
 
 class Register extends Component {
 
@@ -44,36 +45,35 @@ class Register extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} className='register-form'>
                     <fieldset>
                         <legend>Register</legend>
-                        <p>
+                        <div className="input-field col s6">
+                       
                             <label htmlFor="username">Username </label>
-                            <input
-                            type="text" id="username"
+                            <input type="text" id="username" className="validate"
                             onChange={e => this.setState({username: e.target.value})} />
-                        </p>
-                        <p>
+                        </div>
+
+                        <div className="input-field col s6">
                             <label htmlFor="email">Email </label>
-                            <input
-                            type="text" id="email"
+                            <input type="text" id="email" className="validate"
                             onChange={e => this.setState({email: e.target.value})} />
-                        </p>
-                        <p>
+                        </div>
+
+                        <div className="input-field col s6">
                             <label htmlFor="password">Password </label>
-                            <input
-                            type="password" id="password"
+                            <input type="password" id="password"
                             onChange={e => this.setState({password: e.target.value})} />
-                        </p>
-                        <p>
+                        </div>
+
+                        <div className="input-field col s6">
                             <label htmlFor="password">Confirm Password </label>
-                            <input
-                            type="password" id="password2"
+                            <input type="password" id="password2"
                             onChange={e => this.setState({password2: e.target.value})} />
-                        </p>
-                        <p>
-                            <button type="submit">Register</button>
-                        </p>
+                        </div>
+                            <button className ="waves-effect waves-light btn register-btn" type="submit">Register</button>
+                      
                     </fieldset>
                 </form>
                 
