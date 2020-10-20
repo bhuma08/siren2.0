@@ -12,6 +12,9 @@ django = "*"
 django-cors-headers = "*"
 django-heroku = "*"
 dj-database-url = "*"
+whitenoise = "*"
+gunicorn = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"

@@ -13,11 +13,13 @@ class DeleteGoal extends Component {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
-                'Authorization' : `Token ${token}`
+                'Authorization' : `Token ${token}`,
+                'Access-Control-Allow-Origin' : '*',
+                'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
             }
         }
 
-        fetch(`http://127.0.0.1:8000/api/${this.props.id}/`, options)
+        fetch(`https://siren-final-backend.herokuapp.com/api/${this.props.id}/`, options)
         .then(alert('Your Goals has been deleted'))
         .then(window.location.reload(false))    
     }

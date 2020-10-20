@@ -19,11 +19,12 @@ class Goals extends Component {
         const config = {
             headers :{
                 'Content-Type': 'application/json',
-                'Authorization' : `Token ${token}`
+                'Authorization' : `Token ${token}`,
+                'Access-Control-Allow-Origin' : '*',
             }
         }
         
-        axios.get('http://127.0.0.1:8000/api/user/', config)
+        axios.get('https://siren-final-backend.herokuapp.com/api/user/', config)
             .then((response)=> {
                 this.setState({ id: response.data.id })
             })
@@ -41,11 +42,12 @@ class Goals extends Component {
         const config = {
             headers :{
                 'Content-Type': 'application/json',
-                'Authorization' : `Token ${token}`
+                'Authorization' : `Token ${token}`,
+                'Access-Control-Allow-Origin': '*',
             }
         }
 
-        axios.get(`http://127.0.0.1:8000/api/username/${this.state.id}`, config)
+        axios.get(`https://siren-final-backend.herokuapp.com/api/username/${this.state.id}`, config)
             .then((response)=> {
                 this.setState({ goals : response.data })
                 console.log(this.state.goals)
@@ -69,13 +71,13 @@ class Goals extends Component {
         return (
             <div>
                 <p>
-                    <button onClick={this.showGoals} class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <button onClick={this.showGoals} className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         View your Goals
                     </button>
                 </p>
                 
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
+                <div className="collapse" id="collapseExample">
+                    <div className="card card-body">
                         <DisplayGoals goals={this.state.goals}/>    
                     </div>
                 </div>      
