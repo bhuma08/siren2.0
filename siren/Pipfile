@@ -10,6 +10,8 @@ djangorestframework = "*"
 django-rest-knox = "*"
 django = "*"
 django-cors-headers = "*"
+django-heroku = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.8"
