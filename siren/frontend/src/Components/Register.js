@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
 import { register } from '../Actions/Auth';
@@ -16,7 +15,6 @@ class Register extends Component {
 
     static propTypes ={
         register: PropTypes.func.isRequired,
-        isAuthenticated: PropTypes.bool,
     }
 
     
@@ -32,13 +30,12 @@ class Register extends Component {
             const newUser = {
                 username,
                 password,
-                email,
             };
             this.props.register(newUser);
 
             e.target.reset();
         
-            alert("You have successfully registered! please log in")
+            alert("You have successfully registered!")
         }
     }
     
@@ -81,12 +78,8 @@ class Register extends Component {
         )
     }
 }
-
-const mapStateToProps = (state) => ({
-    isAuthenticated: state.AuthReducer.isAuthenticated,
-});
   
-export default connect(mapStateToProps, { register })(Register);
+export default connect(null, { register })(Register);
 
 
 
