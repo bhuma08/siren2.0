@@ -79,7 +79,7 @@ class NewGoalsForm extends Component {
             <div>
                 <form>
                     <div>
-                        <label>Goals: </label>
+                        <label>Goal: </label>
                         <input type='text' name='goal' placeholder='What is you goal?' onChange={e => this.setState({goal: e.target.value})} value={this.state.goal}></input><br></br>
                     </div>
 
@@ -94,19 +94,19 @@ class NewGoalsForm extends Component {
                     <div className='Dates'>
 
                         <div>
-                            <label>Start date and time: </label>
+                            <label>Start date: </label>
                             <Calendar onChange={start_date => this.setState({ start_date })} value={this.state.date}/>
                         </div>
 
                         <div>
-                            <label>End date and time: </label>
+                            <label>End date: </label>
                             <Calendar onChange={end_date => this.setState({ end_date })} value={this.state.date}/>
                         </div>
 
-                    </div>
+                    </div><br></br>
 
                     <div>
-                        <input type='submit' value='create' onClick={this.update}></input>
+                        <input type='submit' value='create' className ="waves-effect waves-light btn" onClick={this.update}></input>
                     </div>   
                 </form>    
             </div>

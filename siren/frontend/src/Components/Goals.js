@@ -68,19 +68,16 @@ class Goals extends Component {
 
         return (
             <div>
-                {/* <button onClick={this.showGoals}>View your Goals</button>
-                <Modal open={this.state.openModal} onClose={this.onCloseModal} center>
-                    <DisplayGoals goals={this.state.goals}/>     
-                </Modal>   */}
                 <p>
-                <button onClick={this.showGoals} class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                View your Goals
-                </button>
+                    <button onClick={this.showGoals} class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        View your Goals
+                    </button>
                 </p>
+                
                 <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <DisplayGoals goals={this.state.goals}/>    
-                </div>
+                    <div class="card card-body">
+                        <DisplayGoals goals={this.state.goals}/>    
+                    </div>
                 </div>      
             </div>
         )
