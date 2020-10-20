@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import DeleteGoal from './DeleteGoal';
+import '../styles/DisplayGoals.css'
 
 class DisplayGoals extends Component {
     
     render() {
         return (
-            <div>
+            <div className='goals'>
                 {this.props.goals.map((item, idx) =>
-                    <div key={idx}>
-                        <p>Your Goal: {item.goal}</p>
+                    <div className='oneGoal' key={idx}>
+                        <DeleteGoal id={item.id}/>
+                        <p>{item.goal}</p>
                         <p>Actions to help you reach your goal: </p>
-                        <ul>
+                        <ol>
                             <li>{item.actionOne}</li>
                             <li>{item.actionTwo}</li>
                             <li>{item.actionThree}</li>
                             <li>{item.actionFour}</li>
-                        </ul>
+                        </ol>
                         <p>Start date: {item.start_time}</p>
-                        <p>Deadline: {item.end_time}</p>
-                        <DeleteGoal id={item.id}/>
-                        <hr></hr>      
+                        <p>Deadline: {item.end_time}</p>   
                     </div>) }   
             </div>
         )

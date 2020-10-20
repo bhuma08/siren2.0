@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../styles/DeleteGoal.css'
 
 class DeleteGoal extends Component {
 
@@ -24,7 +25,7 @@ class DeleteGoal extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick}>Delete</button>
+                <button onClick={this.handleClick} className ="waves-effect waves-light btn delete-btn">x</button>
                 
             </div>
         )
