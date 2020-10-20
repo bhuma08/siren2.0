@@ -3,6 +3,7 @@ import Logout from '../Components/Logout'
 import Goals from '../Components/Goals'
 import NewGoals from '../Components/NewGoals'
 import {connect} from "react-redux";
+import '../styles/Home.css'
 
 class Home extends Component {
 
@@ -10,10 +11,13 @@ class Home extends Component {
         return (
             <div>
                 <Logout/>
-                <h1>Welcome {this.props.username}</h1>
-                <Goals/>
-                <NewGoals/>
-                
+                <h1 className='welcome'>Welcome {this.props.username}</h1>
+                <div className='home-grid'>
+
+                    <div><NewGoals/></div><br></br>
+                    <div><Goals/></div>
+                   
+                </div>  
             </div>
         )
     }

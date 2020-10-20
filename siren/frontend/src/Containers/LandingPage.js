@@ -13,7 +13,7 @@ class LandingPage extends Component {
                     <p> Set deadlines to motivate you to accomplish your goals</p>
                 </div>
 
-                <div>
+                <div className='loginAndRegister'>
                     <Login/>
                     <h4 className='OR'>OR</h4>
                     <Register/>

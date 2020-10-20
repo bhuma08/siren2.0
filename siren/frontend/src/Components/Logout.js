@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
 import { logout } from '../Actions/Auth'
+import '../styles/Logout.css'
 
 
 class Logout extends Component {
@@ -17,7 +18,7 @@ class Logout extends Component {
 
         return (
             <div>
-                {isAuthenticated ? <button onClick={this.props.logout} >Logout</button> : <h1></h1>}    
+                {isAuthenticated ? <button onClick={this.props.logout} className ="waves-effect waves-light btn logout-btn">Logout</button> : <h1></h1>}    
             </div>
         )
     }
