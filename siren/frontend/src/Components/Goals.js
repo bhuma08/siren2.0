@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import axios from 'axios';
 import DisplayGoals from './DisplayGoals';
-import { Modal } from 'react-responsive-modal';
-import 'react-responsive-modal/styles.css';
 
 class Goals extends Component {
 
