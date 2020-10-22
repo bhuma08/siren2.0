@@ -33,45 +33,51 @@ class NewGoalsForm extends Component {
         this.props.addEndDate(this.state.end_date);
         this.props.addUsername(this.state.username)
 
-        //post to api
-        const token = this.props.token 
+        if(this.state.goal == '' || this.state.actionOne == '' || this.state.actionTwo=='' || this.state.actionThree=='' || this.state.actionFour=='' || this.state.start_date==''|| this.state.end_date==''){
+            alert('Please fill all the sections in the form.')
+        } else {
 
-        const data = {
-            goal : this.state.goal,
-            actionOne : this.state.actionOne,
-            actionTwo : this.state.actionTwo,
-            actionThree: this.state.actionThree,
-            actionFour: this.state.actionFour,
-            start_time: this.state.start_date,
-            end_time: this.state.end_date,
-            username: this.state.username
-        }
+           alert('You have successfully created a goal!')
 
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization' : `Token ${token}`
+            //post to api
+            const token = this.props.token 
+
+            const data = {
+                goal : this.state.goal,
+                actionOne : this.state.actionOne,
+                actionTwo : this.state.actionTwo,
+                actionThree: this.state.actionThree,
+                actionFour: this.state.actionFour,
+                start_time: this.state.start_date,
+                end_time: this.state.end_date,
+                username: this.state.username
             }
+
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization' : `Token ${token}`
+                }
+            }
+        
+            fetch(`https://siren-final-backend.herokuapp.com/api/`, options)
+                .then(r => r.json())
+                .catch(console.warn) 
+
+            //Reset the form
+            this.setState({
+                goal: "",
+                actionOne : "",
+                actionTwo :"",
+                actionThree:"",
+                actionFour:"",
+                start_date:"",
+                end_date:'',
+                username:''
+            })       
         }
-    
-        fetch(`https://siren-final-backend.herokuapp.com/api/`, options)
-            .then(r => r.json())
-            .then(alert('You have succesfully created your goal.'))
-            .catch(console.warn) 
-            
-        //Reset the form
-        this.setState({
-            goal: "",
-            actionOne : "",
-            actionTwo :"",
-            actionThree:"",
-            actionFour:"",
-            start_date:"",
-            end_date:'',
-            username:''
-        })       
     }
 
     render() {
