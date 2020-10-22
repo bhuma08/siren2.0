@@ -1,5 +1,12 @@
 .OR {
-    margin-left: 45%;
+    margin-left: 50%;
+    margin-right: 40%;
+    padding-left: 1.5%;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    font-size: 25px;
+    border: black solid 1px;
+    border-radius: 10%;
 }
 
 .container {
@@ -9,8 +16,8 @@
 }
 
 .intro{
-    margin-top: 15%;
-    margin-left: 20%;
+    margin-top: -100%;
+   
 }
 
 body{
@@ -20,5 +27,6 @@ body{
 }
 
 .loginAndRegister{
-    margin-top:-20%;
+    margin-top: 10%;
+    margin-left: 20%;
 }

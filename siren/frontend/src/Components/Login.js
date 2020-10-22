@@ -32,7 +32,7 @@ class Login extends Component {
                     <fieldset>
                         <legend>Login</legend>
                         <div className="input-field col s6">
-                            <label htmlFor="username">Username </label>
+                            <label htmlFor="username">Username</label>
                             <input type="text" id='username' className="validate" onChange={e => this.setState({username: e.target.value})} />
                         </div>
                         <div className="input-field col s6">
