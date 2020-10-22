@@ -50,18 +50,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-     'http://localhost:5000',
-      'http://localhost:8000',
-      'https://siren-final-backend.herokuapp.com/'
-)
-
-
-CORS_ORIGIN_REGEX_WHITELIST = [
-    'http://localhost:3000',
-]
-
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -77,6 +65,13 @@ MIDDLEWARE = [
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+     'http://localhost:5000',
+      'http://localhost:8000',
+      'https://siren-final-backend.herokuapp.com/'
+)
 
 ROOT_URLCONF = 'siren.urls'
 

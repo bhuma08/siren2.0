@@ -14,8 +14,6 @@ class DeleteGoal extends Component {
             headers: {
                 "Content-Type": "application/json",
                 'Authorization' : `Token ${token}`,
-                'Access-Control-Allow-Origin' : '*',
-                'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
             }
         }
 
