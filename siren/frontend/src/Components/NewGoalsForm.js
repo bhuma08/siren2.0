@@ -79,12 +79,12 @@ class NewGoalsForm extends Component {
             <div>
                 <form>
                     <div>
-                        <label>Goal: </label>
+                        <label><h4>Goal:</h4></label>
                         <input type='text' name='goal' placeholder='What is you goal?' onChange={e => this.setState({goal: e.target.value})} value={this.state.goal}></input><br></br>
                     </div>
 
                     <div>
-                        <label>What actions are you going to take? </label><br></br>
+                        <label><h4>What actions are you going to take?</h4></label><br></br>
                         <input type='text' name='one' placeholder='One' onChange={e => this.setState({actionOne: e.target.value})} value={this.state.actionOne}></input><br></br>
                         <input type='text'name='two' placeholder='Two' onChange={e => this.setState({actionTwo: e.target.value})} value={this.state.actionTwo}></input><br></br>
                         <input type='text' name='three' placeholder='Three' onChange={e => this.setState({actionThree: e.target.value})} value={this.state.actionThree}></input><br></br>
@@ -94,19 +94,19 @@ class NewGoalsForm extends Component {
                     <div className='Dates'>
 
                         <div>
-                            <label>Start date: </label>
+                            <label><h4>Start date:</h4></label>
                             <Calendar onChange={start_date => this.setState({ start_date })} value={this.state.date}/>
                         </div>
 
                         <div>
-                            <label>End date: </label>
+                            <label><h4>End date:</h4></label>
                             <Calendar onChange={end_date => this.setState({ end_date })} value={this.state.date}/>
                         </div>
 
                     </div><br></br>
 
                     <div>
-                        <input type='submit' value='create' className ="waves-effect waves-light btn" onClick={this.update}></input>
+                        <input type='submit' value='create' className ="waves-effect waves-light btn create-btn" onClick={this.update}></input>
                     </div>   
                 </form>    
             </div>
