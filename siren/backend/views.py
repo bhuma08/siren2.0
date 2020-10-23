@@ -65,3 +65,5 @@ class GoalsUserDetail(APIView):
         goal = self.get_object(username)
         serializer = GoalsSerializer(goal, many=True)
         return Response(serializer.data)
+
+        
