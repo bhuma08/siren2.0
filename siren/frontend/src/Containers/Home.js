@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Logout from '../Components/Logout'
 import Goals from '../Components/Goals'
+import Habits from '../Components/Habits'
 import NewGoals from '../Components/NewGoals'
 import {connect} from "react-redux";
 import '../styles/Home.css'
@@ -16,6 +17,8 @@ class Home extends Component {
 
                     <div><NewGoals/></div><br></br>
                     <div><Goals/></div>
+
+                    <div><Habits/></div>
                    
                 </div>  
             </div>

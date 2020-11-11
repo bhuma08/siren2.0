@@ -8,11 +8,11 @@ class Goals extends Component {
     state= {
         id : '',
         goals : [],
-        openModal : false
     }
 
     componentDidMount(){
         const token = this.props.token
+        console.log(token)
 
         const config = {
             headers :{
@@ -21,8 +21,9 @@ class Goals extends Component {
             }
         }
         
-        axios.get('https://siren-final-backend.herokuapp.com/api/user/', config)
+        axios.get('http://127.0.0.1:8000/api/user/', config)
             .then((response)=> {
+                console.log(response)
                 this.setState({ id: response.data.id })
             })
             .catch((error)=>{
@@ -43,7 +44,7 @@ class Goals extends Component {
             }
         }
 
-        axios.get(`https://siren-final-backend.herokuapp.com/api/username/${this.state.id}`, config)
+        axios.get(`http://127.0.0.1:8000/api/goals/username/${this.state.id}`, config)
             .then((response)=> {
                 this.setState({ goals : response.data })
                 console.log(this.state.goals)
@@ -57,10 +58,6 @@ class Goals extends Component {
                 console.log(error);
             });
     };   
-
-    onCloseModal = ()=>{
-        this.setState({openModal : false})
-    }
 
     render() {
 

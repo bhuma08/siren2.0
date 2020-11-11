@@ -62,7 +62,7 @@ class NewGoalsForm extends Component {
                 }
             }
         
-            fetch(`https://siren-final-backend.herokuapp.com/api/`, options)
+            fetch(`http://127.0.0.1:8000/api/goals/`, options)
                 .then(r => r.json())
                 .catch(console.warn) 
 
