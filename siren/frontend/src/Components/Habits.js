@@ -42,18 +42,6 @@ class Habits extends Component {
         this.setState({openModal : true})
 
         console.log("show habits")
-
-    //     const options = {
-    //         method: 'GET',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             'Authorization' : `Token ${token}`
-    //         }
-    //     }
-    
-    //     fetch(`http://127.0.0.1:8000/api/habits/username/${this.props.username}`, options)
-    //         .then(r => r.json())
-    //         .catch(console.warn) 
     }; 
     
     onCloseModal = ()=>{
