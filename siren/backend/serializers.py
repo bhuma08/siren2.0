@@ -1,12 +1,18 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Goals
+from .models import Goals, Habits
 from django.contrib.auth import authenticate
 
 class GoalsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Goals
+        fields = ('__all__')
+
+class HabitsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Habits
         fields = ('__all__')
 
 

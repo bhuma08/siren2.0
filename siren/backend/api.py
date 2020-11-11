@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from knox.models import AuthToken
 
-from .models import Goals
+# from .models import Goals
 from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer
 
 

@@ -16,3 +16,14 @@ class Goals(models.Model):
 
     def __str__(self):
         return self.goal
+
+
+class Habits(models.Model):
+    habit = models.CharField(max_length=100)
+    frequency = models.IntegerField() 
+    progress = models.IntegerField() 
+    complete = models.BooleanField(default=False)
+    username = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return self.habit

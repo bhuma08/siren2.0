@@ -70,7 +70,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
      'http://localhost:5000',
       'http://localhost:8000',
-      'https://siren-final-backend.herokuapp.com/'
+    #   'https://siren-final-backend.herokuapp.com/'
 )
 
 ROOT_URLCONF = 'siren.urls'
