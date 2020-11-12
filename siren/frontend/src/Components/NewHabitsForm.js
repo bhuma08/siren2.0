@@ -51,7 +51,6 @@ class NewHabitsForm extends Component {
                 frequency : "",
                 username:''
             })       
-    
     }
 
     render() {

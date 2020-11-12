@@ -51,7 +51,7 @@ class Goals extends Component {
             })
             .then(()=>{
                 if(this.state.goals.length ==0){
-                    alert("No goals has been set") 
+                    alert("No goals have been set") 
                 }
             })
             .catch((error)=>{

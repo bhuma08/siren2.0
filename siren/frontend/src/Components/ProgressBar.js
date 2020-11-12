@@ -72,7 +72,6 @@ class ProgressBar extends Component {
                 .then(r => r.json())
                 .catch(console.warn)
         }
-
     }
 
     render() {
@@ -83,7 +82,6 @@ class ProgressBar extends Component {
         return (
 
             <>
-
                 <p>Completed: {this.state.width} %</p>
 
                 <div className="progress" onClick={this.handleClick}>
@@ -96,6 +94,5 @@ class ProgressBar extends Component {
 const mSTP = state =>({
     token: state.AuthReducer.token
 })
-
 
 export default connect(mSTP)(ProgressBar);

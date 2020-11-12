@@ -11,7 +11,6 @@ class NewHabits extends Component {
 
     handleClick = e =>{
         e.preventDefault()
-        console.log('clicked')
         this.setState({openModal : true})
     }
 

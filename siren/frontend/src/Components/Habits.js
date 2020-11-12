@@ -23,16 +23,14 @@ class Habits extends Component {
             }
         }
 
-
         axios.get(`http://127.0.0.1:8000/api/habits/username/${this.props.username}`, config)
             .then((response)=> {
                 this.setState({ habits : response.data })
                 console.log(this.state.habits)
-
             })
             .then(()=>{
                 if(this.state.habits.length ==0){
-                    alert("No goals has been set") 
+                    alert("No habits have been set") 
                 }
             })
             .catch((error)=>{
