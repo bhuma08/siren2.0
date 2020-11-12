@@ -21,7 +21,7 @@ class Goals(models.Model):
 class Habits(models.Model):
     habit = models.CharField(max_length=100)
     frequency = models.IntegerField() 
-    progress = models.IntegerField(default=0) 
+    progress = models.DecimalField(default=0, max_digits=5, decimal_places=2) 
     complete = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 

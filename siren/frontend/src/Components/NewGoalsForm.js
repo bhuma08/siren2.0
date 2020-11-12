@@ -53,6 +53,10 @@ class NewGoalsForm extends Component {
                 username: this.state.username
             }
 
+            console.log(data)
+
+
+
             const options = {
                 method: 'POST',
                 body: JSON.stringify(data),
