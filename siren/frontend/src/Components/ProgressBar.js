@@ -47,29 +47,31 @@ class ProgressBar extends Component {
         const add = +this.state.width + +divide
         console.log(add)
 
-        this.setState({ width: add })
+        if (add<=100){
 
-        const token = this.props.token
+            this.setState({ width: add })
 
-        const data={
-            habit: this.state.habits,
-            frequency: this.state.frequency,
-            progress: add
-        }
+            const token = this.props.token
 
-        console.log(data)
-
-        const options ={
-            method: 'PUT',
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization" : `Token ${token}`,
+            const data={
+                habit: this.state.habits,
+                frequency: this.state.frequency,
+                progress: add
             }
+            console.log(data)
+
+            const options ={
+                method: 'PUT',
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization" : `Token ${token}`,
+                }
+            }
+            fetch(`http://127.0.0.1:8000/api/habits/${this.props.id}/`, options)
+                .then(r => r.json())
+                .catch(console.warn)
         }
-        fetch(`http://127.0.0.1:8000/api/habits/${this.props.id}/`, options)
-            .then(r => r.json())
-            .catch(console.warn)
 
     }
 
