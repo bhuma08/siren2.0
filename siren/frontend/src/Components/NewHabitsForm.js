@@ -71,13 +71,6 @@ class NewHabitsForm extends Component {
 
                     <div>
                         <label><h4>How many times a day would you like to track your habit?</h4></label><br></br>
-                        {/* <select name='frequency' onChange={e => this.setState({frequency: e.target.value})}> 
-                            <option value="DEFAULT" disabled>Please select an option</option>
-                            <option value = "1"> 1 </option>
-                            <option value = "2"> 2 </option>
-                            <option value = "3"> 3 </option>
-                            <option value = "4"> 4 </option>
-                        </select> */}
 
                         <input type='text' name='frequency' placeholder='Write a number between 1-10' onChange={e => this.setState({frequency: e.target.value})} value={this.state.frequency}></input><br></br>
                 

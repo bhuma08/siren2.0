@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Calendar from 'react-calendar';
+import moment from 'moment';
 import 'react-calendar/dist/Calendar.css';
 import '../styles/NewGoalsForm.css'
 
@@ -14,7 +15,8 @@ class NewGoalsForm extends Component {
         actionFour:"",
         start_date: new Date(),
         end_date: new Date(),
-        username:''
+        username:'',
+        a: ''
     }
 
     componentDidMount(){
@@ -70,7 +72,7 @@ class NewGoalsForm extends Component {
             fetch(`http://127.0.0.1:8000/api/goals/`, options)
                 .then(r => r.json())
                 .catch(console.warn) 
-                .then(window.location.reload(false)) 
+                // .then(window.location.reload(false)) 
 
             //Reset the form
             // this.setState({
@@ -86,7 +88,9 @@ class NewGoalsForm extends Component {
         }
     }
 
+    
     render() {
+        
         return (
             <div>
                 <form>
@@ -107,12 +111,12 @@ class NewGoalsForm extends Component {
 
                         <div>
                             <label><h4>Start date:</h4></label>
-                            <Calendar onChange={start_date => this.setState({ start_date })} value={this.state.date}/>
+                            <Calendar onChange={start_date => this.setState({ start_date: moment (this.state.start_date).format("YYYY-MM-DD") })} value={this.state.date}/>
                         </div>
 
                         <div>
                             <label><h4>End date:</h4></label>
-                            <Calendar onChange={end_date => this.setState({ end_date })} value={this.state.date}/>
+                            <Calendar onChange={end_date => this.setState({ end_date: moment (this.state.end_date).format("YYYY-MM-DD") })} value={this.state.date}/>
                         </div>
 
                     </div><br></br>

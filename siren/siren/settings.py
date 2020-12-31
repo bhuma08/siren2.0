@@ -111,8 +111,10 @@ DATABASES = {
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
-# DATE_INPUT_FORMATS = ['%d-%m-%Y', '%Y-%m-%d']
-
+DATETIME_FORMAT = '%Y-%m-%d'
+# DATETIME_FORMAT = '%d/%m/%Y'
+USE_L10N = False
+USE_TZ = False 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
