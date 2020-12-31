@@ -16,7 +16,6 @@ class NewGoalsForm extends Component {
         start_date: new Date(),
         end_date: new Date(),
         username:'',
-        a: ''
     }
 
     componentDidMount(){
@@ -110,12 +109,12 @@ class NewGoalsForm extends Component {
 
                         <div>
                             <label><h4>Start date:</h4></label>
-                            <Calendar onChange={start_date => this.setState({ start_date: moment (this.state.start_date).format("YYYY-MM-DD") })} value={this.state.date}/>
+                            <Calendar onChange={start_date => this.setState({ start_date: moment (start_date).format("YYYY-MM-DD") })} value={this.state.date}/>
                         </div>
 
                         <div>
                             <label><h4>End date:</h4></label>
-                            <Calendar onChange={end_date => this.setState({ end_date: moment (this.state.end_date).format("YYYY-MM-DD") })} value={this.state.date}/>
+                            <Calendar onChange={end_date => this.setState({ end_date: moment (end_date).format("YYYY-MM-DD") })} value={this.state.date}/>
                         </div>
 
                     </div><br></br>
