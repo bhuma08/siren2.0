@@ -2,8 +2,7 @@
     margin-left: 50%;
     margin-right: 40%;
     padding-left: 1.5%;
-    margin-top: 5%;
-    margin-bottom: 7%;
+    margin-top: 2%;
     font-size: 25px;
     border: black solid 1px;
     border-radius: 10%;
@@ -16,7 +15,7 @@
 }
 
 .intro{
-    margin-top: -100%;
+    margin-top: -125%;
    
 }
 
@@ -27,6 +26,6 @@ body{
 }
 
 .loginAndRegister{
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 20%;
 }
