@@ -21,7 +21,12 @@ class NewHabitsForm extends Component {
         this.props.addFrequency(this.state.frequency);
         this.props.addUsername(this.state.username)
 
-        
+        if(this.state.habit=="" || this.state.frequency=="" || !isNaN(this.state.frequency) == false){
+            alert("Please fill all the sections in the form correctly.")
+            console.log(typeof this.state.frequency)
+        } else {
+
+            alert("You have successfully created a daily habit! :)")
             //post to api
             const token = this.props.token 
 
@@ -44,13 +49,15 @@ class NewHabitsForm extends Component {
             fetch(`http://127.0.0.1:8000/api/habits/`, options)
                 .then(r => r.json())
                 .catch(console.warn) 
+                .then(window.location.reload(false)) 
 
             //Reset the form
-            this.setState({
-                habit: "",
-                frequency : "",
-                username:''
-            })       
+            // this.setState({
+            //     habit: "",
+            //     frequency : "",
+            //     username:''
+            // })   
+        }    
     }
 
     render() {

@@ -35,9 +35,10 @@ class NewGoalsForm extends Component {
 
         if(this.state.goal == '' || this.state.actionOne == '' || this.state.actionTwo=='' || this.state.actionThree=='' || this.state.actionFour=='' || this.state.start_date==''|| this.state.end_date==''){
             alert('Please fill all the sections in the form.')
+            
         } else {
 
-           alert('You have successfully created a goal!')
+           alert('You have successfully created a goal! :)')
 
             //post to api
             const token = this.props.token 
@@ -69,18 +70,19 @@ class NewGoalsForm extends Component {
             fetch(`http://127.0.0.1:8000/api/goals/`, options)
                 .then(r => r.json())
                 .catch(console.warn) 
+                .then(window.location.reload(false)) 
 
             //Reset the form
-            this.setState({
-                goal: "",
-                actionOne : "",
-                actionTwo :"",
-                actionThree:"",
-                actionFour:"",
-                start_date:"",
-                end_date:'',
-                username:''
-            })       
+            // this.setState({
+            //     goal: "",
+            //     actionOne : "",
+            //     actionTwo :"",
+            //     actionThree:"",
+            //     actionFour:"",
+            //     start_date:"",
+            //     end_date:'',
+            //     username:''
+            // })       
         }
     }
 
