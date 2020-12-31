@@ -30,17 +30,17 @@ class Login extends Component {
             <div>
                 <form onSubmit={this.onSubmit} className='login-form'>
                     <fieldset>
-                        <legend>Login</legend>
+                        <legend className='login'>Login</legend>
                         <div className="input-field col s6">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username" className='login'>Username</label>
                             <input type="text" id='username' className="validate" onChange={e => this.setState({username: e.target.value})} />
                         </div>
                         <div className="input-field col s6">
-                            <label htmlFor="password">Password </label>
+                            <label htmlFor="password" className='login'>Password </label>
                             <input type="password" id="password" className="validate" onChange={e => this.setState({password: e.target.value})} />
                         </div>
                       
-                        <button className ="waves-effect waves-light btn login-btn" type="submit">Login</button>   
+                        <button className ="waves-effect waves-light btn login-btn login" type="submit">Login</button>   
                     </fieldset>
                 </form>      
             </div>

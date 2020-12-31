@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import axios from 'axios';
 import DisplayGoals from './DisplayGoals';
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 
 class Goals extends Component {
 
     state= {
         id : '',
         goals : [],
+        openModal : false,
     }
 
     componentDidMount(){
@@ -57,7 +60,13 @@ class Goals extends Component {
             .catch((error)=>{
                 console.log(error);
             });
+        
+        this.setState({openModal : true})
     };   
+
+    onCloseModal = ()=>{
+        this.setState({openModal : false})
+    }
 
     render() {
 
@@ -65,15 +74,19 @@ class Goals extends Component {
             <div>
                 <p>
                     <button onClick={this.showGoals} className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        View your Goals
+                        View my Goals
                     </button>
                 </p>
+
+                <Modal open={this.state.openModal} onClose={this.onCloseModal} center>
+                    <DisplayGoals goals={this.state.goals}/>
+                </Modal> 
                 
-                <div className="collapse" id="collapseExample">
+                {/* <div className="collapse" id="collapseExample">
                     <div className="card card-body">
                         <DisplayGoals goals={this.state.goals}/>    
                     </div>
-                </div>      
+                </div>       */}
             </div>
         )
     }

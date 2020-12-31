@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import '../styles/DisplayHabits.css'
 import axios from 'axios';
 
 class ProgressBar extends Component {
@@ -82,7 +83,7 @@ class ProgressBar extends Component {
         return (
 
             <>
-                <p>Completed: {this.state.width} %</p>
+                <p className='habitDisplay'>Completed: {this.state.width} %</p>
 
                 <div className="progress" onClick={this.handleClick}>
                     <div className="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={style}></div>

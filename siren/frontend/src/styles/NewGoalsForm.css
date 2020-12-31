@@ -10,3 +10,12 @@
     margin-left: 85%;
     margin-bottom: 4%;
 }
+
+button{
+    font-family: 'Kalam';
+}
+
+.btn-primary{
+    font-size: 25px;
+    padding: 35px 35px 70px 35px;
+}

@@ -44,32 +44,32 @@ class Register extends Component {
             <div>
                 <form onSubmit={this.onSubmit} className='register-form'>
                     <fieldset>
-                        <legend>Register</legend>
+                        <legend className='register'>Register</legend>
                         <div className="input-field col s6">
                        
-                            <label>Username </label>
+                            <label className='register'>Username </label>
                             <input type="text" id="user" className="validate"
                             onChange={e => this.setState({username: e.target.value})} />
                         </div>
 
                         <div className="input-field col s6">
-                            <label>Email </label>
+                            <label className='register'>Email </label>
                             <input type="text" id="email" className="validate"
                             onChange={e => this.setState({email: e.target.value})} />
                         </div>
 
                         <div className="input-field col s6">
-                            <label>Password </label>
+                            <label className='register'>Password </label>
                             <input type="password" id="pass" className="validate"
                             onChange={e => this.setState({password: e.target.value})} />
                         </div>
 
                         <div className="input-field col s6">
-                            <label>Confirm Password </label>
+                            <label className='register'>Confirm Password </label>
                             <input type="password" id="pass2" className="validate"
                             onChange={e => this.setState({password2: e.target.value})} />
                         </div>
-                            <button className ="waves-effect waves-light btn register-btn" type="submit">Register</button>
+                            <button className ="waves-effect waves-light btn register-btn register" type="submit">Register</button>
                       
                     </fieldset>
                 </form>

@@ -50,7 +50,7 @@ class Habits extends Component {
 
         return (
             <div>
-                <button onClick={this.showHabits} className="btn btn-primary">View your daily habits</button>
+                <button onClick={this.showHabits} className="btn btn-primary">View my daily habits</button>
                 <Modal open={this.state.openModal} onClose={this.onCloseModal} center>
                     <DisplayHabits habits={this.state.habits}/>
                 </Modal> 

@@ -21,7 +21,7 @@ class NewHabits extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick} className="btn btn-primary">Create your daily habits</button>
+                <button onClick={this.handleClick} className="btn btn-primary">Create a daily habit</button>
                 <Modal open={this.state.openModal} onClose={this.onCloseModal} center>
                     <NewHabitsForm/>
                 </Modal>   

@@ -95,16 +95,15 @@ class NewGoalsForm extends Component {
             <div>
                 <form>
                     <div>
-                        <label><h4>Goal:</h4></label>
-                        <input type='text' name='goal' placeholder='What is you goal?' onChange={e => this.setState({goal: e.target.value})} value={this.state.goal}></input><br></br>
+                        <input type='text' name='goal' placeholder='My goal is to ...' onChange={e => this.setState({goal: e.target.value})} value={this.state.goal}></input><br></br>
                     </div>
 
                     <div>
-                        <label><h4>What actions are you going to take?</h4></label><br></br>
-                        <input type='text' name='one' placeholder='One' onChange={e => this.setState({actionOne: e.target.value})} value={this.state.actionOne}></input><br></br>
-                        <input type='text'name='two' placeholder='Two' onChange={e => this.setState({actionTwo: e.target.value})} value={this.state.actionTwo}></input><br></br>
-                        <input type='text' name='three' placeholder='Three' onChange={e => this.setState({actionThree: e.target.value})} value={this.state.actionThree}></input><br></br>
-                        <input type='text' name='four' placeholder='Four' onChange={e => this.setState({actionFour: e.target.value})}value={this.state.actionFour}></input><br></br>
+                        <label><h4>What actions am I going to take?</h4></label><br></br>
+                        <input type='text' name='one' placeholder='Action One' onChange={e => this.setState({actionOne: e.target.value})} value={this.state.actionOne}></input><br></br>
+                        <input type='text'name='two' placeholder='Action Two' onChange={e => this.setState({actionTwo: e.target.value})} value={this.state.actionTwo}></input><br></br>
+                        <input type='text' name='three' placeholder='Action Three' onChange={e => this.setState({actionThree: e.target.value})} value={this.state.actionThree}></input><br></br>
+                        <input type='text' name='four' placeholder='Action Four' onChange={e => this.setState({actionFour: e.target.value})}value={this.state.actionFour}></input><br></br>
                     </div>
 
                     <div className='Dates'>

@@ -15,13 +15,16 @@ class Home extends Component {
                 <Logout/>
                 <h1 className='welcome'>Welcome {this.props.username}</h1>
                 <div className='home-grid'>
-
-                    <div><NewGoals/></div><br></br>
-                    <div><Goals/></div><br></br><br></br>
-                    <div><NewHabits/></div><br></br>
-                    <div><Habits/></div>
-                   
-                </div>  
+                    <div>
+                        <div><NewGoals/></div><br></br>
+                        <div><Goals/></div>
+                    </div>
+                    <div>
+                        <div><NewHabits/></div><br></br>
+                        <div><Habits/></div>
+                    </div>  
+                </div> 
+                <div className='bhuma'>by BHUMA. </div> 
             </div>
         )
     }

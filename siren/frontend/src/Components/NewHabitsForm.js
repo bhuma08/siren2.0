@@ -65,12 +65,12 @@ class NewHabitsForm extends Component {
             <div>
                 <form>
                     <div>
-                        <label><h4>Daily Habit:</h4></label>
-                        <input type='text' name='goal' placeholder='What daily habit would you like to track?' onChange={e => this.setState({habit: e.target.value})} value={this.state.habit}></input><br></br>
+                        <label><h4>What Daily Habit do I want to track?</h4></label>
+                        <input type='text' name='goal' placeholder='I would like to track my...' onChange={e => this.setState({habit: e.target.value})} value={this.state.habit}></input><br></br>
                     </div>
 
                     <div>
-                        <label><h4>How many times a day would you like to track your habit?</h4></label><br></br>
+                        <label><h4>How many times a day would I like to track your habit?</h4></label><br></br>
 
                         <input type='text' name='frequency' placeholder='Write a number between 1-10' onChange={e => this.setState({frequency: e.target.value})} value={this.state.frequency}></input><br></br>
                 

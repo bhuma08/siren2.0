@@ -1,7 +1,13 @@
 .login-form{
     margin-left: 10%;
+
 }
 
 .login-btn{
     margin-left: 75%;
+}
+
+.login{
+    font-family: 'Kalam';
+    font-weight: 1000;
 }

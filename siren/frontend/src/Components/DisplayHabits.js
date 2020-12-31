@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import DeleteHabit from './DeleteHabit';
-import '../styles/DisplayGoals.css'
+import '../styles/DisplayHabits.css'
 import ProgressBar from './ProgressBar';
 
 class DisplayHabits extends Component {
     
     render() {
         return (
-            <div className='goals'>
-                {this.props.habits.map((item, idx) =>
-                    <div className='oneGoal' key={idx}> 
-                        <div> 
-                            <h4>{item.habit}</h4><br></br>
-                            <ProgressBar id={item.id}/><br></br>
-                            <DeleteHabit id={item.id}/>
-                        </div>
-                    </div>) }   
-            </div>)
+            <>
+                <h3>My daily habit tracker: </h3>
+                <div className='habits'>
+                    {this.props.habits.map((item, idx) =>
+                        <div className='oneHabit' key={idx}> 
+                            <div> 
+                                <h3>{item.habit}</h3><br></br>
+                                <ProgressBar id={item.id}/><br></br>
+                                <DeleteHabit id={item.id}/>
+                            </div>
+                        </div>) }   
+                </div>
+            </>)
     }
 }
 
