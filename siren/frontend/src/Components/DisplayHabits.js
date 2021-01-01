@@ -8,7 +8,7 @@ class DisplayHabits extends Component {
     render() {
         return (
             <>
-                <h3>My daily habit tracker: </h3>
+                <h3>Daily Habits</h3>
                 <div className='habits'>
                     {this.props.habits.map((item, idx) =>
                         <div className='oneHabit' key={idx}> 

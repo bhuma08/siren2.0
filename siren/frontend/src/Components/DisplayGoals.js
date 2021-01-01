@@ -7,7 +7,7 @@ class DisplayGoals extends Component {
     render() {
         return (
             <>
-                <h3>My goals so far...</h3>
+                <h3>My Goals so far...</h3>
 
                 <div className='goals'>
                     {this.props.goals.map((item, idx) =>
