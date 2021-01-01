@@ -22,7 +22,7 @@ class ProgressBar extends Component {
             }
         }
 
-        axios.get(`http://127.0.0.1:8000/api/habits/${this.props.id}`, config)
+        axios.get(`https://siren-final-backend.herokuapp.com/api/habits/${this.props.id}`, config)
             .then((response)=> {
                 this.setState({ habits : response.data.habit })
                 console.log(this.state.habits)
@@ -69,7 +69,7 @@ class ProgressBar extends Component {
                     "Authorization" : `Token ${token}`,
                 }
             }
-            fetch(`http://127.0.0.1:8000/api/habits/${this.props.id}/`, options)
+            fetch(`https://siren-final-backend.herokuapp.com/api/habits/${this.props.id}/`, options)
                 .then(r => r.json())
                 .catch(console.warn)
         }

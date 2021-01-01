@@ -23,7 +23,7 @@ class Habits extends Component {
             }
         }
 
-        axios.get(`http://127.0.0.1:8000/api/habits/username/${this.props.username}`, config)
+        axios.get(`https://siren-final-backend.herokuapp.com/api/habits/username/${this.props.username}`, config)
             .then((response)=> {
                 this.setState({ habits : response.data })
                 console.log(this.state.habits)

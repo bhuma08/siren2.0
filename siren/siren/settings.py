@@ -70,7 +70,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
      'http://localhost:5000',
       'http://localhost:8000',
-    #   'https://siren-final-backend.herokuapp.com/'
+        'https://siren-final-backend.herokuapp.com/'
 )
 
 ROOT_URLCONF = 'siren.urls'
@@ -112,7 +112,6 @@ db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
 DATETIME_FORMAT = '%Y-%m-%d'
-# DATETIME_FORMAT = '%d/%m/%Y'
 USE_L10N = False
 USE_TZ = False 
 

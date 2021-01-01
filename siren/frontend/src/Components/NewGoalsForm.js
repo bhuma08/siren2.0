@@ -68,22 +68,22 @@ class NewGoalsForm extends Component {
                 }
             }
         
-            fetch(`http://127.0.0.1:8000/api/goals/`, options)
+            fetch(`https://siren-final-backend.herokuapp.com/api/goals/`, options)
                 .then(r => r.json())
                 .catch(console.warn) 
-                .then(window.location.reload(false)) 
+                // .then(window.location.reload(false)) 
 
             //Reset the form
-            // this.setState({
-            //     goal: "",
-            //     actionOne : "",
-            //     actionTwo :"",
-            //     actionThree:"",
-            //     actionFour:"",
-            //     start_date:"",
-            //     end_date:'',
-            //     username:''
-            // })       
+            this.setState({
+                goal: "",
+                actionOne : "",
+                actionTwo :"",
+                actionThree:"",
+                actionFour:"",
+                start_date:"",
+                end_date:'',
+                username:''
+            })       
         }
     }
 

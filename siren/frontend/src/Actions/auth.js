@@ -28,7 +28,7 @@ export const loadUser = () => (dispatch, getState) => {
     }
   
     axios
-        .get('http://127.0.0.1:8000/api/user/', config)
+        .get('https://siren-final-backend.herokuapp.com/api/user/', config)
         .then((res) => {
             dispatch({
                 type: USER_LOADED,
@@ -56,7 +56,7 @@ export const login = (username, password) => dispatch => {
     const body= JSON.stringify({ username, password })
   
     axios
-        .post('http://127.0.0.1:8000/api/login/', body, config)
+        .post('https://siren-final-backend.herokuapp.com/api/login/', body, config)
         .then((res) => {
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -74,7 +74,7 @@ export const login = (username, password) => dispatch => {
 //Logout user
 export const logout = () => (dispatch, getState) => {
     axios
-        .post('http://127.0.0.1:8000/api/logout/', null, tokenConfig(getState))
+        .post('https://siren-final-backend.herokuapp.com/api/logout/', null, tokenConfig(getState))
         .then((res) => {
             dispatch({ type: 'CLEAR_LEADS' });
             dispatch({
@@ -122,7 +122,7 @@ export const register = ({ username, password }) => (dispatch) => {
     const body = JSON.stringify({ username, password });
   
     axios
-        .post('http://127.0.0.1:8000/api/register/', body, config)
+        .post('https://siren-final-backend.herokuapp.com/api/register/', body, config)
         .then((res) => {
             dispatch({
                 type: REGISTER_SUCCESS,

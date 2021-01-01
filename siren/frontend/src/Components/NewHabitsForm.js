@@ -46,17 +46,17 @@ class NewHabitsForm extends Component {
                 }
             }
         
-            fetch(`http://127.0.0.1:8000/api/habits/`, options)
+            fetch(`https://siren-final-backend.herokuapp.com/api/habits/`, options)
                 .then(r => r.json())
                 .catch(console.warn) 
-                .then(window.location.reload(false)) 
+                // .then(window.location.reload(false)) 
 
             //Reset the form
-            // this.setState({
-            //     habit: "",
-            //     frequency : "",
-            //     username:''
-            // })   
+            this.setState({
+                habit: "",
+                frequency : "",
+                username:''
+            })   
         }    
     }
 

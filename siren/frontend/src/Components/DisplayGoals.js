@@ -13,7 +13,7 @@ class DisplayGoals extends Component {
                     {this.props.goals.map((item, idx) =>
                         <div className='oneGoal' key={idx}>
                             <h4 className='goalsDisplay'>{item.goal}</h4>
-                            <p className='goalsDisplay'>Actions to help you reach your goal: </p>
+                            <p className='goalsDisplay'>Actions I need to take to reach my Goal: </p>
                             <ol>
                                 <li className='goalsDisplay'>{item.actionOne}</li>
                                 <li className='goalsDisplay'>{item.actionTwo}</li>

@@ -16,7 +16,7 @@ class DeleteGoal extends Component {
             }
         }
 
-        fetch(`http://127.0.0.1:8000/api/goals/${this.props.id}/`, options)
+        fetch(`https://siren-final-backend.herokuapp.com/api/goals/${this.props.id}/`, options)
         .then(alert('Your Goals has been deleted'))
         .then(window.location.reload(false))    
     }
